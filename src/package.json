@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --outDir dist",
+    "build": "vite build --outDir dist && node copy-pwa-files.js",
     "preview": "vite preview"
   },
   "dependencies": {
