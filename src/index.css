@@ -1343,6 +1343,10 @@
     max-height: calc(var(--spacing) * 48);
   }
 
+  .max-h-60 {
+    max-height: calc(var(--spacing) * 60);
+  }
+
   .max-h-64 {
     max-height: calc(var(--spacing) * 64);
   }
@@ -6048,6 +6052,12 @@
   @media (hover: hover) {
     .hover\:text-teal-700:hover {
       color: var(--color-teal-700);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:text-white:hover {
+      color: var(--color-white);
     }
   }
 

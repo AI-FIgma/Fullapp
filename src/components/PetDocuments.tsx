@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { FileText, Syringe, Shield, Plus, Download, Share2, MoreVertical, FileCheck, AlertCircle, Phone, Book, Siren } from 'lucide-react';
 import { toast } from 'sonner@2.0.3';
 import { useTranslation } from '../utils/useTranslation';
-import { InsuranceClaimModal } from './InsuranceClaimModal';
+import { InsuranceClaimModal } from './documents/InsuranceClaimModal';
 
 // Mock data types
 export interface PetDocument {
