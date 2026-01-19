@@ -20,6 +20,9 @@ console.error = (...args: any[]) => {
   const isConnectionError = 
     errorStr.includes('connection closed') ||
     errorStr.includes('Http: connection') ||
+    errorStr.includes('Http: error writing') ||
+    errorStr.includes('writing a body to connection') ||
+    errorStr.includes('broken pipe') ||
     errorStr.includes('BrokenPipe') ||
     errorStr.includes('ConnectionReset') ||
     errorStr.includes('EPIPE') ||
@@ -496,10 +499,11 @@ Deno.serve(
         (e as any).code === "ECONNRESET" ||
         e.message?.includes('connection closed') || 
         e.message?.includes('connection error') ||
-        e.message?.includes('broken pipe');
+        e.message?.includes('broken pipe') ||
+        e.message?.includes('writing a body to connection');
 
       if (isConnectionError) {
-        // Return minimal response for connection errors
+        // Silently ignore - these are normal when client disconnects
         return new Response(null, { status: 499 });
       }
       console.error("Critical Server Error:", e);
