@@ -13,6 +13,23 @@ if (isPreviewMode) {
   console.log('⚠️ Server running in PREVIEW MODE - Missing env vars. Server disabled to prevent HTTP errors.');
 }
 
+// Override console.error to filter out connection errors completely
+const originalConsoleError = console.error;
+console.error = (...args: any[]) => {
+  const errorStr = args.join(' ');
+  const isConnectionError = 
+    errorStr.includes('connection closed') ||
+    errorStr.includes('Http: connection') ||
+    errorStr.includes('BrokenPipe') ||
+    errorStr.includes('ConnectionReset') ||
+    errorStr.includes('EPIPE') ||
+    errorStr.includes('ECONNRESET');
+  
+  if (!isConnectionError) {
+    originalConsoleError(...args);
+  }
+};
+
 // Suppress noisy connection errors
 globalThis.addEventListener("unhandledrejection", (e) => {
   const err = e.reason;
