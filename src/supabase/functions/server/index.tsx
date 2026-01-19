@@ -482,7 +482,8 @@ Deno.serve(
         e.message?.includes('broken pipe');
 
       if (isConnectionError) {
-        return new Response(null, { status: 499 });
+        // Don't try to send a response - connection is already closed
+        return undefined;
       }
       console.error("Critical Server Error:", e);
       return new Response("Internal Server Error", { status: 500 });
