@@ -1,0 +1,35 @@
+{
+  "name": "Amipeta - Gyvūnų Įvaikinimas",
+  "short_name": "Amipeta",
+  "description": "Rask savo naują geriausią draugą - gyvūnų įvaikinimo platforma Lietuvoje",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "social"],
+  "shortcuts": [
+    {
+      "name": "Naršyti gyvūnus",
+      "short_name": "Naršyti",
+      "description": "Žiūrėti įvaikinti galimus gyvūnus",
+      "url": "/?view=explore"
+    },
+    {
+      "name": "Mano favoritas",
+      "short_name": "Favoritas",
+      "description": "Peržiūrėti pamėgtus gyvūnus",
+      "url": "/?view=saved"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
